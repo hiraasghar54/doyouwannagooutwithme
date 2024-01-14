@@ -1,0 +1,98 @@
+.popup{
+
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba($color-black,.8);
+
+    opacity: 0;  //mtlb content show ni hoga wahin
+    visibility: hidden;
+   
+    transition: all .3s;
+   
+      &__content{
+          width:33%;
+          height:45rem;
+          background-color: rgba(255,255,255,0.5);
+          box-shadow: 0 2rem 4rem rgba($color-black,.4);
+          border-radius: 5rem;
+       
+          top:50%;
+          left: 50%;
+          transform: translate(-50%,-50%);
+          position: absolute;
+
+
+          opacity: 0;
+     transform: translate(-50%,-50%) scale(.5); 
+     transition: all .4s .2s;   //.2s delay hai 
+      }
+
+
+      &__heading-secondary{
+          font-size:2.3rem;
+         font-weight:800;
+        
+         display: block;
+         
+         background-image: linear-gradient(to right bottom , rgba($color-green,1.0),rgba($color-green,0.9));
+         background-clip: unset;
+         -webkit-background-clip: text;
+         color: transparent;
+         
+          
+      }
+      &__center{
+          text-align: center;
+        margin-top: 7rem;
+      
+
+      }
+
+
+      
+    //OPEN STATES
+    &:target{      //mtlb jo id di hai usko target kr rhy hain
+
+      opacity: 1;
+      visibility:visible;
+    }  
+    &:target &__content { //we want to style content at the moment when popup is open it happens when the popup becomes the target
+     opacity: 1;
+     transform: translate(-50%,-50%) scale(1) ;
+     
+    }
+     
+    &:target &__content .cards{
+      opacity: 0;
+      visibility: hidden;
+    }
+
+      
+        &__close{
+          &:link,
+          &:visited{
+        
+            color: $color-green;
+            position: absolute;
+            top:2.5rem;
+            right: 3.2rem;
+            font-size: 3.5rem;
+            text-decoration: none;
+            display: inline-block;
+            transition: all .2s;
+            line-height: 1;
+        
+          }
+          &:hover{
+            color:$color-white;
+
+          }
+      
+}
+
+
+
+}

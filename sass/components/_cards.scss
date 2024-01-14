@@ -1,0 +1,10 @@
+.cards{
+     
+    &__side{
+        outline: none;
+
+    }
+    &:target{
+       visibility: hidden;
+    }
+}
